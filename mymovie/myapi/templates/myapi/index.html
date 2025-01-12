@@ -1,0 +1,28 @@
+{% extends 'myapi/base.html' %}
+
+{% block content %}
+
+<div class="container">
+   <div class="card" id="box">
+    <div class="card-body">
+        <div class="row">
+            {% for movie in Movie %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                           <img src="{{movie.image}}" alt="" class="img-fluid" width="80%">
+                           <h3 class="text-center">{{ movie.title }}</h3>
+                           <i>{{ movie.created_at }}</i>
+                           <a href="{% url 'myapi:detail' movie.id%}">read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+   </div>
+
+{% endblock %}

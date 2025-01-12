@@ -1,0 +1,29 @@
+{% extends 'myapi/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{movie.image}}" alt="movie.title" class="img-fluid" width="200" height="200">
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-center">{{movie.title}}</h2>
+                <h5>Directed by: {{movie.director}}</h5>
+                <h5>Genre: {{movie.genre}}</h5>
+                <h5>Release date: {{movie.created_at}}</h5>
+                <h5>Rating: {{movie.rating}}</h5>
+                <p>{{movie.description}}</p>
+                <a href="{% url 'myapi:edit_movies' movie.id %}" class="btn btn-warning">Edit Movie</a>
+                <a href="{% url 'myapi:delete_movies' movie.id %}" class="btn btn-danger">Delete Movie</a>
+
+            </div>
+        </div>
+    </div>
+    <br>
+ 
+
+</div>
+
+
+{% endblock %}
